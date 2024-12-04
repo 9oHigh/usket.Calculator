@@ -16,7 +16,7 @@ class OperationFactory {
       case '/':
         return DivideOperation();
       default:
-        throw ArgumentError('Unsupported operator: $operator');
+        throw '제공되지 않는 연산자: $operator';
     }
   }
 }

@@ -4,7 +4,7 @@ class DivideOperation implements Operation {
   @override
   double execute(double a, double b) {
     if (b == 0) {
-      throw ArgumentError("Division by zero is not allowed");
+      throw "0 으로는 나눌 수 없습니다.";
     }
     return a / b;
   }
