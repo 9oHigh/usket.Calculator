@@ -8,4 +8,11 @@ void main() {
       expect(operation.excute(1, 2), equals(3));
     });
   });
+
+  group("SubtractOperation", () {
+    test("return difference of two numbers", () {
+      final operation = SubtractOperation();
+      expect(operation.excute(2, 1), equals(1));
+    });
+  });
 }
