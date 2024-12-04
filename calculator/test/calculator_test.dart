@@ -31,5 +31,10 @@ void main() {
       final operation = DivideOperation();
       expect(operation.execute(4, 2), equals(2));
     });
+
+    test("throw error when dividing by zero", () {
+      final operation = DivideOperation();
+      expect(() => operation.execute(4, 0), throwsArgumentError);
+    });
   });
 }
