@@ -1,7 +1,7 @@
-import 'package:calculator/operations/add_operation.dart';
-import 'package:calculator/operations/divide_operation.dart';
-import 'package:calculator/operations/multiply_operation.dart';
-import 'package:calculator/operations/subtract_operation.dart';
+import 'package:calculator/operation/operations/add_operation.dart';
+import 'package:calculator/operation/operations/divide_operation.dart';
+import 'package:calculator/operation/operations/multiply_operation.dart';
+import 'package:calculator/operation/operations/subtract_operation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

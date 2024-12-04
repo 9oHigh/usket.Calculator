@@ -1,4 +1,4 @@
-import 'package:calculator/operations/interface/operation.dart';
+import 'package:calculator/operation/operations/interface/operation.dart';
 
 class AddOperation implements Operation {
   @override

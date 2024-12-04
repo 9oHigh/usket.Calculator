@@ -1,7 +1,10 @@
 library calculator;
 
-/// A Calculator.
+import 'package:calculator/operation/operation_factory.dart';
+
 class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+  double calculate(double a, String operator, double b) {
+    final operation = OperationFactory.getOperation(operator);
+    return operation.execute(a, b);
+  }
 }
