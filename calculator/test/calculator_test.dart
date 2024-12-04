@@ -16,4 +16,11 @@ void main() {
       expect(operation.excute(2, 1), equals(1));
     });
   });
+
+  group("MultiplyOperation", () {
+    test("return product of two numbers", () {
+      final operation = MultiplyOperation();
+      expect(operation.excute(3, 1), equals(3));
+    });
+  });
 }
