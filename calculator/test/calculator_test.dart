@@ -1,4 +1,5 @@
 import 'package:calculator/operations/add_operation.dart';
+import 'package:calculator/operations/multiply_operation.dart';
 import 'package:calculator/operations/subtract_operation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
