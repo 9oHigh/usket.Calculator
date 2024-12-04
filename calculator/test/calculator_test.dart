@@ -24,4 +24,11 @@ void main() {
       expect(operation.excute(3, 1), equals(3));
     });
   });
+
+  group("DivideOperation", () {
+    test("return quotient of two numbers", () {
+      final operation = DivideOperation();
+      expect(operation.excute(4, 2), equals(2));
+    });
+  });
 }
