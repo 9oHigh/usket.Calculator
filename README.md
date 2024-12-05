@@ -47,8 +47,15 @@
       * Placeholder 코드 및 주석 추가
 
 ### 사용방법
-* git clone 이후, 루트 디렉토리로 이동 및 아래의 명령어를 입력
+* 계산기
+  * git clone 이후, calculator 디렉토리로 이동 및 아래의 명령어를 입력
+    
+      ```shell
+      dart lib/main.dart
+      ```
+* 테스트
+  * git clone 이후, calculator 디렉토리로 이동 및 아래의 명령어를 입력
   
     ```shell
-    dart calculator/lib/main.dart
+    flutter test test/calculator_test.dart
     ```
