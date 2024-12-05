@@ -37,4 +37,12 @@ void main() {
       expect(() => operation.execute(4, 0), throwsArgumentError);
     });
   });
+
+  group("ParseOperands", () {
+    test("parse operands from input", () {
+      const String input = "3 * 7";
+      const String operator = "*";
+      expect(InputParser.parseOperands(input, operator), equals([3, 7]));
+    });
+  });
 }
