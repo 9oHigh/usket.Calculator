@@ -1,3 +1,3 @@
 abstract class Operation {
-  double execute(double a, double b);
+  double execute(List<double> operands);
 }
