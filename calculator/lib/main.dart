@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:calculator/calculator.dart';
+import 'package:calculator/input_parser.dart';
 
 void main() {
   print('계산기 테스트를 진행하겠습니다.');
@@ -11,14 +12,10 @@ void main() {
 
   while (true) {
     stdout.write('입력: ');
-    final input = stdin.readLineSync();
-
-    if (input == null || input.trim().isEmpty) {
-      print("--------------------------------");
-      print('입력이 옳바른지 확인하고 다시 입력해주세요.');
-      print("--------------------------------");
-      continue;
-    }
+    final input = stdin.readLineSync()!;
+    // 차기 이터레이션에서 수정 필요
+    const pattern = r'^\d+(\.\d+)?\s*[+\-*/]\s*\d+(\.\d+)?$';
+    final regex = RegExp(pattern);
 
     if (input.toLowerCase() == 'exit') {
       print("--------------------------------");
@@ -27,28 +24,19 @@ void main() {
       break;
     }
 
+    if (!regex.hasMatch(input)) {
+      print("--------------------------------");
+      print('입력이 옳바른지 확인하고 다시 입력해주세요.');
+      print("--------------------------------");
+      continue;
+    }
     final expression = input.split(' ');
-
-    if (expression.length != 3) {
-      print("--------------------------------");
-      print('잘못된 입력입니다.\n사용 방법: <operand1> <operator> <operand2>');
-      print("--------------------------------");
-      continue;
-    }
-
-    final a = double.tryParse(expression[0]);
-    final b = double.tryParse(expression[2]);
-    final operator = expression[1];
-
-    if (a == null || b == null) {
-      print("--------------------------------");
-      print('operand 에는 숫자를 입력해주세요.');
-      print("--------------------------------");
-      continue;
-    }
+    String operator =
+        expression.firstWhere((exp) => ['+', '-', '*', '/'].contains(exp));
+    final operands = InputParser.parseOperands(input, operator);
 
     try {
-      final result = calculator.calculate(a, operator, b);
+      final result = calculator.calculate(operator, operands);
       print('결과: $result');
       print("--------------------------------");
     } catch (e) {
