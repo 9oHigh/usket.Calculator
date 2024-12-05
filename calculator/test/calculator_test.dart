@@ -1,3 +1,4 @@
+import 'package:calculator/input_parser.dart';
 import 'package:calculator/operation/operations/add_operation.dart';
 import 'package:calculator/operation/operations/divide_operation.dart';
 import 'package:calculator/operation/operations/multiply_operation.dart';
