@@ -7,6 +7,28 @@ import 'package:calculator/operation/operations/subtract_operation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  testInputParser();
+  testOperations();
+  testCalculator();
+}
+
+void testInputParser() {
+  group("ParseOperands", () {
+    test("parse operands from input", () {
+      const String input = "3 * 7";
+      const String operator = "*";
+      expect(InputParser.parseOperands(input, operator), equals([3, 7]));
+    });
+
+    test("parse operands from input", () {
+      const String input = "60 sin";
+      const String operator = "sin";
+      expect(InputParser.parseOperands(input, operator), equals([60]));
+    });
+  });
+}
+
+void testOperations() {
   group("AddOperation", () {
     test("return sum of two numbers", () {
       final operation = AddOperation();
@@ -39,23 +61,11 @@ void main() {
       expect(() => operation.execute([4, 0]), throwsArgumentError);
     });
   });
+}
 
-  group("ParseOperands", () {
-    test("parse operands from input", () {
-      const String input = "3 * 7";
-      const String operator = "*";
-      expect(InputParser.parseOperands(input, operator), equals([3, 7]));
-    });
-
-    test("parse operands from input", () {
-      const String input = "60 sin";
-      const String operator = "sin";
-      expect(InputParser.parseOperands(input, operator), equals([60]));
-    });
-  });
-
+void testCalculator() {
   group("Calculator", () {
-    test("calculate by taking operator and operands ", () {
+    test("calculate by taking operator and operands", () {
       final Calculator calculator = Calculator();
       expect(calculator.calculate("+", [1, 2]), equals(3));
     });
