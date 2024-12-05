@@ -3,8 +3,8 @@ library calculator;
 import 'package:calculator/operation/operation_factory.dart';
 
 class Calculator {
-  double calculate(double a, String operator, double b) {
+  double calculate(String operator, List<double> operands) {
     final operation = OperationFactory.getOperation(operator);
-    return operation.execute(a, b);
+    return operation.execute(operands);
   }
 }
