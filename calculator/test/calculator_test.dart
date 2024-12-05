@@ -52,4 +52,11 @@ void main() {
       expect(InputParser.parseOperands(input, operator), equals([60]));
     });
   });
+
+  group("Calculator", () {
+    test("calculate by taking operator and operands ", () {
+      final Calculator calculator = Calculator();
+      expect(calculator.calculate("+", [1, 2]), equals(3));
+    });
+  });
 }
